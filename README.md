@@ -36,7 +36,7 @@ This addin can be used to have a quick look on the model data
 ## Installation details
 
 1.	Goto the location where you’ve extracted the Zip file and copy the path of the PointCloudToggle.dll file pressing “Shift” and right clicking on the ObjExport.dll file.  
-2.	Open the addin file <PointCloudToggle.addin> and paste the location instead of the location mentioned within the assembly tag in the addin file.
+2.	Open the addin file <ProjectDashboard_WPF.addin> and paste the location instead of the location mentioned within the assembly tag in the addin file.
 ![image](https://user-images.githubusercontent.com/96645509/194313058-a429f946-536d-440b-acb7-6861c9b7924e.png)
 
 3.	copy the .addin file 
