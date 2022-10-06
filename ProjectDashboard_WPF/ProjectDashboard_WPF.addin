@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Command">
+		<Name>ProjectDashboard_WPF</Name>
+		<Assembly>C:\Users\kewintitus.a\source\repos\ProjectDashboard_WPF\ProjectDashboard_WPF\ProjectDashboard_WPF.dll</Assembly>
+		<AddInId>
+			00D43507-C9AA-4B86-A5F4-5BFA7421550D
+		</AddInId>
+		<FullClassName>ProjectDashboard_WPF.ExternalCommand</FullClassName>
+		<Text>ProjectDashBoard</Text>
+		<Description>UI</Description>
+		<VendorId>KT</VendorId>
+		<VendorDescription>@KT</VendorDescription>
+		<VisibilityMode>AlwaysVisible</VisibilityMode>
+	</AddIn>
+</RevitAddIns>

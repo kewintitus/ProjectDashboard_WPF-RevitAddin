@@ -1,0 +1,233 @@
+﻿<Window x:Class="ProjectDashboard_WPF.Viewer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ProjectDashboard_WPF"
+             mc:Ignorable="d" 
+             d:DesignHeight="1000" d:DesignWidth="1800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.75*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1.25*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0">
+                <WrapPanel Orientation="Vertical">
+                    <TextBlock x:Name="ProjectName" Text="Project Sample"  VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="16" Background="White" Margin="25 0 0 0"></TextBlock>
+                    <Label FontSize="15" Margin="10 0 0 0">Model Health Latest Dashboard</Label>
+                </WrapPanel>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition ></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Button Margin="65 0 20 0 " Click="ChangeValueOnClickProject">Update</Button>
+                        <lvc:AngularGauge Name="TotalWarningsGauge" Height="120" Width="110" Margin="65 0 0 0" Grid.Row="1" Value="{Binding Value}" FromValue="0" ToValue="1000" 
+                          LabelsStep="250" TicksStep="100" Wedge="300"
+                          TicksForeground="White" Foreground="White" 
+                          FontWeight="Bold" FontSize="10"
+                          SectionsInnerRadius=".5">
+                            <lvc:AngularGauge.Sections>
+                                <lvc:AngularSection FromValue="0" ToValue="600" Fill="#F8A725"/>
+                                <lvc:AngularSection FromValue="600" ToValue="1000" Fill="#FF3939"/>
+                            </lvc:AngularGauge.Sections>
+                        </lvc:AngularGauge>
+
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <lvc:AngularGauge Name="FileSizeGauge" Height="120" Width="95" Margin="89,40,24,-13" Grid.Row="1" Value="{Binding Value}" FromValue="0" ToValue="1000" 
+                          LabelsStep="250" TicksStep="100" Wedge="300"
+                          TicksForeground="White" Foreground="White" 
+                          FontWeight="Bold" FontSize="10"
+                          SectionsInnerRadius=".5">
+                            <lvc:AngularGauge.Sections>
+                                <lvc:AngularSection FromValue="0" ToValue="600" Fill="#F8A725"/>
+                                <lvc:AngularSection FromValue="600" ToValue="1000" Fill="#FF3939"/>
+                            </lvc:AngularGauge.Sections>
+                        </lvc:AngularGauge>
+
+                    </Grid>
+                </Grid>
+                
+            </StackPanel>
+            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                <WrapPanel Orientation="Vertical" Margin="80 0 0 0">
+                    <TextBlock x:Name="TotalWarnings" Text="511" Height="40" Width="100" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="25" Background="White" Margin="10 10 10 10"></TextBlock>
+                    <Label FontSize="15" Margin="10 0 0 0">Total Warnings</Label>
+                </WrapPanel>
+                <WrapPanel Orientation="Vertical" Margin="80 0 0 0 ">
+                    <TextBlock x:Name="FileSizeText" Text="511" Height="40" Width="100" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="25" Background="White" Margin="10 10 10 10"></TextBlock>
+                    <Label FontSize="15" Margin="0 0 0 0" Content="File Size"/>
+                </WrapPanel>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="1.25*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition ></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Button Margin="65 0 20 0 " Click="ChangeValueOnClickElements">Update</Button>
+                        <lvc:AngularGauge Name="TotalElementsGauge" Height="90" Width="110" Margin="75 0 0 0" Grid.Row="1" Value="{Binding Value}" FromValue="0" ToValue="80000" 
+                          LabelsStep="20000" TicksStep="10000" Wedge="300"
+                          TicksForeground="White" Foreground="White" 
+                          FontWeight="Bold" FontSize="10"
+                          SectionsInnerRadius=".5">
+                            <lvc:AngularGauge.Sections>
+                                <lvc:AngularSection FromValue="0" ToValue="65000" Fill="#F8A725"/>
+                                <lvc:AngularSection FromValue="65000" ToValue="80000" Fill="#FF3939"/>
+                            </lvc:AngularGauge.Sections>
+                        </lvc:AngularGauge>
+
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <lvc:AngularGauge Name="PurgableElementsGauge" Height="110" Width="95" Margin="76,19,37,6" Grid.Row="1" Value="{Binding Value}" FromValue="0" ToValue="1000" 
+                          LabelsStep="250" TicksStep="125" Wedge="300"
+                          TicksForeground="White" Foreground="White" 
+                          FontWeight="Bold"  FontSize="10"
+                          SectionsInnerRadius=".5">
+                            <lvc:AngularGauge.Sections>
+                                <lvc:AngularSection FromValue="0" ToValue="800" Fill="#F8A725"/>
+                                <lvc:AngularSection FromValue="800" ToValue="1000" Fill="#FF3939"/>
+                            </lvc:AngularGauge.Sections>
+                        </lvc:AngularGauge>
+
+                    </Grid>
+                </Grid>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                <WrapPanel Orientation="Vertical" Margin="80 0 0 0">
+                    <TextBlock x:Name="TotalElements" Text="511" Height="40" Width="100" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="25" Background="White" Margin="10 10 10 10"></TextBlock>
+                    <Label FontSize="15" Margin="10 0 0 0">Total Elements</Label>
+                </WrapPanel>
+                <WrapPanel Orientation="Vertical" Margin="80 0 0 0 ">
+                    <TextBlock x:Name="PurgableElements" Text="511" Height="40" Width="100" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="25" Background="White" Margin="10 10 10 10"></TextBlock>
+                    <Label FontSize="15" Margin="0 0 0 0" Content="Purgable Elements"/>
+                </WrapPanel>
+            </StackPanel>
+        </Grid>
+        <Label Grid.Row="1" Grid.Column="0" Margin="20 20 20 20" Padding="10" Content="Elements Performance" FontSize="30" Background="LightGray"></Label>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="20 60 0 0">
+            <WrapPanel Orientation="Vertical">
+                <TextBlock x:Name="ModelGroups" Text="511" Height="60" Width="80" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="25" Background="Red" Margin="10 10 10 10"></TextBlock>
+                <Label FontSize="10" Margin="10 0 0 0">Model Group</Label>
+            </WrapPanel>
+            <WrapPanel Orientation="Vertical">
+                <TextBlock x:Name="DetailGroup" Text="511" Height="60" Width="80" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="25" Background="Red" Margin="10 10 10 10 "></TextBlock>
+                <Label FontSize="10" Margin="10 0 0 0">Detail Groups</Label>
+            </WrapPanel>
+            <WrapPanel Orientation="Vertical">
+                <TextBlock x:Name="InPlaceFamilies" Text="511" Height="60" Width="80" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="25" Background="Red" Margin="10 10 10 10 "></TextBlock>
+                <Label FontSize="10" Margin="10 0 0 0">In-Place Families</Label>
+            </WrapPanel>
+            <WrapPanel Orientation="Vertical">
+                <TextBlock x:Name="Duplicates" Text="511" Height="60" Width="80" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="25" Background="Red" Margin="10 10 10 10 "></TextBlock>
+                <Label FontSize="10" Margin="10 0 0 0">Duplicates</Label>
+            </WrapPanel>
+
+        </StackPanel>
+        <Label Grid.Row="2" Grid.Column="0" Padding="10" Margin="20 20 20 20" Content="Imports" FontSize="30" Background="LightGray"></Label>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="20 60 0 0">
+            <WrapPanel Orientation="Vertical">
+                <TextBlock x:Name="CadImports" Text="511" Height="60" Width="80" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="25" Background="Red" Margin="10 10 10 10"></TextBlock>
+                <Label FontSize="10" Margin="10 0 0 0">Cad Imports</Label>
+            </WrapPanel>
+            <WrapPanel Orientation="Vertical">
+                <TextBlock x:Name="CoordinationModels" Text="511" Height="60" Width="80" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="25" Background="Red" Margin="10 10 10 10 "></TextBlock>
+                <Label FontSize="10" Margin="10 0 0 0">Coordination Models</Label>
+            </WrapPanel>
+            <WrapPanel Orientation="Vertical">
+                <TextBlock x:Name="PointClouds" Text="511" Height="60" Width="80" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="25" Background="Red" Margin="10 10 10 10 "></TextBlock>
+                <Label FontSize="10" Margin="10 0 0 0">Point Clouds</Label>
+            </WrapPanel>
+            <WrapPanel Orientation="Vertical">
+                <TextBlock x:Name="RasterImages" Text="511" Height="60" Width="80" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="25" Background="Red" Margin="10 10 10 10 "></TextBlock>
+                <Label FontSize="10" Margin="10 0 0 0">Raster Images</Label>
+            </WrapPanel>
+
+        </StackPanel>
+        <Label Grid.Row="1" Grid.Column="1" Padding="10" Margin="20 20 20 20" Content="Views" FontSize="30" Background="LightGray"></Label>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Margin="20 60 0 0">
+            <WrapPanel Orientation="Vertical">
+                <TextBlock x:Name="TotalViews" Text="511" Height="60" Width="80" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="25" Background="LightGreen" Margin="10 10 10 10"></TextBlock>
+                <Label FontSize="10" Margin="10 0 0 0">Total Views</Label>
+            </WrapPanel>
+            <WrapPanel Orientation="Vertical">
+                <TextBlock x:Name="SchedulesBlock" Text="511" Height="60" Width="80" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="25" Background="Red" Margin="10 10 10 10 "></TextBlock>
+                <Label FontSize="10" Margin="10 0 0 0">No of Schedules</Label>
+            </WrapPanel>
+            <WrapPanel Orientation="Vertical">
+                <TextBlock x:Name="NotOnSheets" Text="511" Height="60" Width="80" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="25" Background="Red" Margin="10 10 10 10 "></TextBlock>
+                <Label FontSize="10" Margin="10 0 0 0">Not on Sheets</Label>
+            </WrapPanel>
+            <WrapPanel Orientation="Vertical">
+                <TextBlock x:Name="Sheets" Text="511" Height="60" Width="80" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="25" Background="Red" Margin="10 10 10 10 "></TextBlock>
+                <Label FontSize="10" Margin="10 0 0 0">Sheets</Label>
+            </WrapPanel>
+
+        </StackPanel>
+        <Label Grid.Row="2" Grid.Column="1" Padding="10" Margin="20 20 20 20" Content="Links" FontSize="30" Background="LightGray"></Label>
+        <!--<Rectangle Grid.Row="1"  Opacity="0.4" Margin="20 50 300 40" ></Rectangle>-->
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Margin="20 60 0 0">
+            <WrapPanel Orientation="Vertical">
+                <TextBlock x:Name="RevitLinks" Text="511" Height="60" Width="80" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="25" Background="Red" Margin="10 10 10 10"></TextBlock>
+                <Label FontSize="10" Margin="10 0 0 0">Revit Links</Label>
+            </WrapPanel>
+            <WrapPanel Orientation="Vertical">
+                <TextBlock x:Name="CADLinksDisplay" Text="511" Height="60" Width="80" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="25" Background="Red" Margin="10 10 10 10 "></TextBlock>
+                <Label FontSize="10" Margin="10 0 0 0">CAD Links</Label>
+            </WrapPanel>
+            <WrapPanel Orientation="Vertical">
+                <TextBlock x:Name="Worksets" Text="511" Height="60" Width="80" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="25" Background="Red" Margin="10 10 10 10 "></TextBlock>
+                <Label FontSize="10" Margin="10 0 0 0">Worksets</Label>
+            </WrapPanel>
+            <WrapPanel Orientation="Vertical">
+                <TextBlock x:Name="Options" Text="511" Height="60" Width="80" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="25" Background="Red" Margin="10 10 10 10 "></TextBlock>
+                <Label FontSize="10" Margin="10 0 0 0">Options</Label>
+            </WrapPanel>
+
+        </StackPanel>
+    </Grid>
+    
+</Window>
